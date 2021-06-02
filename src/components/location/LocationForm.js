@@ -26,13 +26,21 @@ export const LocationForm = () => {
     const handleClickSaveLocation = (event) => {
         event.preventDefault()
 
-        const newLocation = {
-            name: location.name,
-            address: location.address
-        }
+        const locationName = location.name
+        const locationAddress = location.address
 
-        addLocation(newLocation)
-            .then(() => history.push("/locations"))
+        if (locationName === "" || locationAddress === "") {
+            window.alert("Please fill in a New Location Name and Address")
+        } else {
+
+            const newLocation = {
+                name: location.name,
+                address: location.address
+            }
+        
+            addLocation(newLocation)
+                .then(() => history.push("/locations"))
+        }
     }
 
     return (

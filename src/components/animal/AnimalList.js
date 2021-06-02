@@ -39,7 +39,7 @@ export const AnimalList = () => {
                 // Use the .map() array method to iterate the array of animals and generate HTML for each one.
                 animals.map(animal => {
                     return (
-                        <div className="animal" id={`animal--${animal.id}`}>
+                        <div className="animal" key={animal.id} id={`animal--${animal.id}`}>
                             <div className="animal__name">
                                 Name: { animal.name }
                             </div>
