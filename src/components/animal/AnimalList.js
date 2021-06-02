@@ -16,7 +16,6 @@ export const AnimalList = () => {
     // The useEffect hook allows the component to reach out into the world for anything that cannot be handled during render. In this case, it is the API call for the animals.
     // If state changes, run these instructions
     useEffect(() => {
-        console.log("AnimalList: useEffect - getAnimals")
         getAnimals()
     }, []) // Array is empty so component only render once
 
