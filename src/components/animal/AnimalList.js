@@ -1,6 +1,9 @@
 import React, { useContext, useEffect } from "react"
 import { AnimalContext } from "./AnimalProvider"
+import { useHistory } from 'react-router-dom'
 import "./Animal.css"
+
+
 
 
 export const AnimalList = () => {
@@ -8,6 +11,7 @@ export const AnimalList = () => {
     // The useContext hook allows you to use data structures and functions that a parent provider component exposes.
     // To start, you need to import the context object you created in the provider component so that the Context hook can access the objects it exposes.
     const { animals, getAnimals } = useContext(AnimalContext)
+    const history = useHistory()
 
     // The useEffect hook allows the component to reach out into the world for anything that cannot be handled during render. In this case, it is the API call for the animals.
     // If state changes, run these instructions
@@ -24,8 +28,14 @@ export const AnimalList = () => {
     */
 
     return (
-        <section className="animals">
-            {console.log("AnimalList: Render", animals)}
+        <section>
+            <h2>Animals</h2>
+            <button onClick={
+                () => history.push("/animals/create")
+            }>
+                Add Animal
+            </button>
+            <div className="animals">
             {
                 // Use the .map() array method to iterate the array of animals and generate HTML for each one.
                 animals.map(animal => {
@@ -47,6 +57,7 @@ export const AnimalList = () => {
                     )
                 })
             }
+            </div>
         </section>
     )
 }
