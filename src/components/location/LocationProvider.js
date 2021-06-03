@@ -23,10 +23,17 @@ export const LocationProvider = (props) => {
         .then(getLocations)
     }
 
+    const removeLocation = locationId => {
+        return fetch(`http://localhost:8088/locations/${locationId}`, {
+            method: "DELETE"
+        })
+        .then(getLocations)
+    }
+
     return (
         <LocationContext.Provider value= {
             {
-                locations, getLocations, addLocation
+                locations, getLocations, addLocation, removeLocation
             }
         }>
             {props.children}

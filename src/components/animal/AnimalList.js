@@ -18,7 +18,7 @@ export const AnimalList = () => {
 
     return (
         <>
-            <h1>Animals</h1>
+            <h1>Current Animals</h1>
 
             <button onClick={() => history.push("/animals/create")}>
                 Make Reservation

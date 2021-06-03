@@ -24,10 +24,19 @@ export const CustomerProvider = (props) => {
         
     }
 
+
+    const removeCustomer = customerId => {
+        return fetch(`http://localhost:8088/customers/${customerId}`, {
+            method: "DELETE"
+        })
+        .then(getCustomers)
+    }
+    
+
     return (
         <CustomerContext.Provider value= {
             {
-                customers, getCustomers, addCustomer
+                customers, getCustomers, addCustomer, removeCustomer
             }
         }>
             {props.children}

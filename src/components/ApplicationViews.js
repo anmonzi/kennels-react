@@ -14,6 +14,8 @@ import { EmployeeForm } from "./employee/EmployeeForm"
 import { AnimalDetail } from "./animal/AnimalDetail"
 import { EmployeeDetail } from "./employee/EmployeeDetail"
 import { LocationDetail } from "./location/LocationDetail"
+import { CustomerDetail } from "./customer/CustomerDetail"
+import { CustomerForm } from "./customer/CustomerForm"
 
 
 
@@ -58,9 +60,19 @@ export const ApplicationViews = () => {
 
             {/* Render the customers */}
             <CustomerProvider>
-                <Route path="/customers">
-                    <CustomerList />
-                </Route>
+                <AnimalProvider>
+                    <Route exact path="/customers">
+                        <CustomerList />
+                    </Route>
+
+                    <Route exact path="/customers/create">
+                        <CustomerForm />
+                    </Route>
+
+                    <Route exact path="/customers/detail/:customerId(\d+)">
+                        <CustomerDetail />
+                    </Route>
+                </AnimalProvider>
             </CustomerProvider>
 
 

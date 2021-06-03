@@ -1,19 +1,28 @@
 import React, { useContext, useEffect, useState } from "react"
 import { LocationContext } from "./LocationProvider"
 import "./Location.css"
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 
 
 export const LocationDetail = () => {
-    const { locations } = useContext(LocationContext)
+    const { locations, removeLocation } = useContext(LocationContext)
     const [ location, setLocation ] = useState({ employees: [], animals: [] })
     const { locationId } = useParams()
+    const history = useHistory()
 
     useEffect(() => {
         const thisLocation = locations.find(location => location.id === parseInt(locationId)) || { employees: [], animals: [] }
 
         setLocation(thisLocation)
     }, [locationId])
+
+
+    const handleRemove = () => {
+        removeLocation(location.id)
+            .then(() => {
+                history.push("/locations")
+            })
+    }
 
     return (
         <section className="location">
@@ -33,6 +42,8 @@ export const LocationDetail = () => {
                     <div className="location__animal__name"> { animal.name } </div>
                 )}
             </div>
+            <br></br>
+            <button className="btn btn-primary" onClick={handleRemove}>Remove Location</button>
         </section>
     )
 }

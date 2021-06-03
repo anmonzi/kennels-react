@@ -1,33 +1,38 @@
 import React, { useContext, useEffect } from "react"
 import { CustomerContext } from "./CustomerProvider"
+import { Link, useHistory } from 'react-router-dom'
 import "./Customer.css"
 
 export const CustomerList = () => {
     const { customers, getCustomers } = useContext(CustomerContext)
+    const history = useHistory()
 
     useEffect(() => {
         getCustomers()
     }, [])
 
     return (
-        <section className="customers">
-            {
-                customers.map(customer => {
-                    return (
+        <>
+            <h1>Current Customers</h1>
+
+            <button onClick={() => history.push("/customers/create")}>
+                Add Customer
+            </button>
+
+            <div className="customers">
+                {
+                    customers.map(customer => 
                         <div className="customer" key={customer.id} id={`customer--${customer.id}`}>
                             <div className="customer__name">
-                                Name: {customer.name}
-                            </div>
-                            <div className="customer__address">
-                                Address: {customer.address}
-                            </div>
-                            <div className="customer__animalName">
-                                Pet Name: {customer.animal.name}
+                                <Link to={`/customers/detail/${customer.id}`}>
+                                    { customer.name }
+                                </Link>
                             </div>
                         </div>
                     )
-                })
-            }
-        </section>
+                }
+            </div>
+        </>
     )
 }
+
