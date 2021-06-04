@@ -11,7 +11,7 @@ export const AnimalForm = () => {
     const { customers, getCustomers } = useContext(CustomerContext)
 
     //for edit, hold on to state of animal in this view
-    const [animal, setAnimal] = useState({})
+    const [animal, setAnimal] = useState({}) //? what view?
     //wait for data before button is active
     const [isLoading, setIsLoading] = useState(true); //? what is isLoading
 
@@ -26,7 +26,7 @@ export const AnimalForm = () => {
       const newAnimal = { ...animal }
       //animal is an object with properties.
       //set the property to the new value
-      newAnimal[event.target.name] = event.target.value
+      newAnimal[event.target.name] = event.target.value //? should we target name or ID?
       //update state
       setAnimal(newAnimal)
     }
