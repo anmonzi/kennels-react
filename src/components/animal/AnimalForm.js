@@ -13,7 +13,7 @@ export const AnimalForm = () => {
     const { customers, getCustomers } = useContext(CustomerContext)
 
     //for edit, hold on to state of animal in this view
-    const [animal, setAnimal] = useState({}) //? what view?
+    const [animal, setAnimal] = useState({}) //? what view? + does useState() return an array and useContext() retun an object?
     //wait for data before button is active
     const [isLoading, setIsLoading] = useState(true); //? what is isLoading and why two useStates?
 
