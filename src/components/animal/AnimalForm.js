@@ -5,6 +5,8 @@ import { CustomerContext } from "../customer/CustomerProvider"
 import "./Animal.css"
 import { useHistory, useParams } from 'react-router-dom';
 
+
+
 export const AnimalForm = () => {
     const { addAnimal, getAnimalById, updateAnimal } = useContext(AnimalContext)
     const { locations, getLocations } = useContext(LocationContext)
@@ -13,7 +15,7 @@ export const AnimalForm = () => {
     //for edit, hold on to state of animal in this view
     const [animal, setAnimal] = useState({}) //? what view?
     //wait for data before button is active
-    const [isLoading, setIsLoading] = useState(true); //? what is isLoading
+    const [isLoading, setIsLoading] = useState(true); //? what is isLoading and why two useStates?
 
     const {animalId} = useParams();
 	const history = useHistory();
