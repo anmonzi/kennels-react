@@ -5,7 +5,7 @@ import { useParams, useHistory } from 'react-router-dom'
 
 
 
-export const AnimalDetail = () => {
+export const AnimalDetail = ({ animalObject }) => {
     const { animals, releaseAnimal } = useContext(AnimalContext)
     const [ animal, setAnimal ] = useState({ location: {}, customer: {} }) //! <--- WHY the empty objects or sometimes ([])
     const history = useHistory()
@@ -20,11 +20,9 @@ export const AnimalDetail = () => {
 
     useEffect(() => {
         // need to parseInt the found animalId to match animal.id
-        const thisAnimal = animals.find(animal => animal.id === parseInt(animalId)) || { location: {}, customer: {} }
-        //! what's the need for the object of empty objects?
-        //! also, why or how can we iterate over an array here?
+        //const thisAnimal = animals.find(animal => animal.id === parseInt(animalId)) || { location: {}, customer: {} 
 
-        setAnimal(thisAnimal)
+        setAnimal(animalObject)
     }, [animalId])
 
     

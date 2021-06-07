@@ -14,6 +14,7 @@ export const AnimalContext = createContext()
 /* You define a single property for each provider defined in your system. This is because the components that uses the data must be defined as children components (more about this in the next chapter), and React will send an object to each component. One of the properties on that object will be children, which contains the child elements. */ 
 export const AnimalProvider = (props) => {
     // Next, you will use the useState() hook to define a variable that holds the state of the component, and a function that updates it.
+    const [searchTerms, setSearchTerms] = useState("")
     const [animals, setAnimals] = useState([])
     // Here's what the State hook is doing for you with a single line of code.
     /*  Define the variable which will hold the data.
@@ -86,7 +87,8 @@ export const AnimalProvider = (props) => {
         <AnimalContext.Provider value={
             {
                 animals, getAnimals, addAnimal, 
-                releaseAnimal, getAnimalById, updateAnimal
+                releaseAnimal, getAnimalById, updateAnimal,
+                searchTerms, setSearchTerms
             }
         }>
             {props.children}

@@ -63,7 +63,7 @@ export const AnimalForm = () => {
     }
 
     // Get customers and locations. If animalId is in the URL, getAnimalById
-    //? useEffect ultimately controls whether the form is empty or filled with permanent data?
+    //? useEffect ultimately controls whether the form is empty or filled with permanent data
     useEffect(() => {
       getCustomers().then(getLocations).then(() => {
         if (animalId){ // if animalId is present in parameters then pass id to getAnimalById 
@@ -79,7 +79,7 @@ export const AnimalForm = () => {
     }, [])
 
     //since state controlls this component, we no longer need
-    //?useRef(null) or ref
+    //useRef(null) or ref
 
     return (
       <form className="animalForm">
@@ -132,7 +132,7 @@ export const AnimalForm = () => {
           disabled={isLoading}
           onClick={event => {
             event.preventDefault() // Prevent browser from submitting the form and refreshing the page
-            handleSaveAnimal()
+            handleSaveAnimal() // handle put or post functionality  ->  ternary statement below - if there's an animalId then load save animal text...else add animal text
           }}>
         {animalId ? <>Save Animal</> : <>Add Animal</>}</button>  
       </form>
