@@ -7,13 +7,13 @@ export const CustomerProvider = (props) => {
     const [customers, setCustomers] = useState([])
 
     const getCustomers = () => {
-        return fetch("http://localhost:8088/customers?_embed=animals")
+        return fetch("https://nashville-kennels-48-api.herokuapp.com/customers?_embed=animals")
         .then(res => res.json())
         .then((data) => setCustomers(data))
     }
 
     const addCustomer = customerObj => {
-        return fetch("http://localhost:8088/customers", {
+        return fetch("https://nashville-kennels-48-api.herokuapp.com/customers", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -26,7 +26,7 @@ export const CustomerProvider = (props) => {
 
 
     const removeCustomer = customerId => {
-        return fetch(`http://localhost:8088/customers/${customerId}`, {
+        return fetch(`https://nashville-kennels-48-api.herokuapp.com/customers/${customerId}`, {
             method: "DELETE"
         })
         .then(getCustomers)

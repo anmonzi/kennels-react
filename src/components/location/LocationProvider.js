@@ -7,18 +7,18 @@ export const LocationProvider = (props) => {
     const [locations, setLocations] = useState([])
 
     const getLocations = () => {
-        return fetch("http://localhost:8088/locations?_embed=employees&_embed=animals")
+        return fetch("https://nashville-kennels-48-api.herokuapp.com/locations?_embed=employees&_embed=animals")
         .then(res => res.json())
         .then((data) => setLocations(data))
     }
 
     const getLocationById = locationId => {
-        return fetch(`http://localhost:8088/locations/${locationId}`)
+        return fetch(`https://nashville-kennels-48-api.herokuapp.com/locations/${locationId}`)
         .then(res => res.json())
     }
 
     const addLocation = locationObj => {
-        return fetch("http://localhost:8088/locations", {
+        return fetch("https://nashville-kennels-48-api.herokuapp.com/locations", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -29,7 +29,7 @@ export const LocationProvider = (props) => {
     }
 
     const updateLocation = location => {
-        return fetch(`http://localhost:8088/locations/${location.id}`, {
+        return fetch(`https://nashville-kennels-48-api.herokuapp.com/locations/${location.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -40,7 +40,7 @@ export const LocationProvider = (props) => {
     }
 
     const removeLocation = locationId => {
-        return fetch(`http://localhost:8088/locations/${locationId}`, {
+        return fetch(`https://nashville-kennels-48-api.herokuapp.com/locations/${locationId}`, {
             method: "DELETE"
         })
         .then(getLocations)
