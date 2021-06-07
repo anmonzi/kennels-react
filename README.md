@@ -1,6 +1,6 @@
 # Nashville Kennels App
 
-This project has been deployed with Heroku, you can visit with this link https://nashville-kennels-48.herokuapp.com/login
+This project has been deployed with Heroku, you can visit with the provided link https://nashville-kennels-48.herokuapp.com/login
 
 ## Getting Started with Create React App
 
