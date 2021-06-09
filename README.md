@@ -4,8 +4,7 @@ This project has been deployed with Heroku, you can visit with this [Link!](http
 
 ## Technologies
 
-1. React
-2. Javascript
+1. Reactjs
 3. JSON
 4. CSS
 5. HTML
