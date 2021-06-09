@@ -6,5 +6,6 @@ This project has been deployed with Heroku, you can visit with this [Link!](http
 
 1. React
 2. Javascript
-3. CSS
-4. HTML
+3. JSON
+4. CSS
+5. HTML
